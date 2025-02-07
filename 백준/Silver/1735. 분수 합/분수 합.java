@@ -9,14 +9,15 @@ public class Main {
 
         int down = down1 * down2;
         int up = up1 * down2 + up2 * down1;
+        int gcd = GCD(up, down);
         
-        for(int i=down/2; i>2; i--){
-            if(down%i==0 && up%i==0){
-                down=down/i;
-                up=up/i;
-            }
-        }
-        System.out.printf("%d %d\n", up,down);
+        System.out.printf("%d %d\n", up/gcd,down/gcd);
         sc.close();
+    }
+    public static int GCD(int a, int b){
+        if(a%b==0)
+            return b;
+        else 
+            return GCD(b, a%b);
     }
 }
